@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Ganaste!</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #e8ffe8;
+      margin:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .box{
+      background:white;
+      padding:35px;
+      border-radius:15px;
+      width:90%;
+      max-width:650px;
+      text-align:center;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1{
+      color:#2e7d32;
+      margin-bottom:20px;
+    }
+    button{
+      margin-top:20px;
+      background:#1976d2;
+      color:white;
+      border:none;
+      padding:12px 24px;
+      font-size:18px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    button:hover{
+      opacity:0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>¡Superaste el desafío! Felicitaciones…</h1>
+
+    <p>Si quieres volver a hacerlo, toca este botón:</p>
+
+    <button onclick="reiniciar()">REINICIAR</button>
+  </div>
+
+  <script>
+    // Si por alguna razón guardado56 no está en 'ganaste', volver a donde corresponda
+    // (protección por si alguien abre ganaste.html sin terminar)
+    const g = localStorage.getItem("guardado56");
+    if (g !== "ganaste"){
+      if (g === "pregunta5") window.location.href = "pregunta5.html";
+      if (g === "pregunta4") window.location.href = "pregunta4.html";
+      if (g === "pregunta3") window.location.href = "pregunta3.html";
+      if (g === "pregunta2") window.location.href = "pregunta2.html";
+      if (g === "pregunta1") window.location.href = "pregunta1.html";
+    }
+
+    function reiniciar(){
+      localStorage.removeItem("guardado56");
+      window.location.href = "index.html"; // nombre del inicio (ajustar si se llama distinto)
+    }
+  </script>
+
+</body>
+</html>
