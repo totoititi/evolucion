@@ -33,7 +33,7 @@
     <br>
     <button onclick="verificar()">Responder</button>
 
-    <p class="small">suerte</p>
+    <p class="small">hola</p>
   </div>
 
   <script>
@@ -48,7 +48,8 @@
     function verificar(){
       const r = document.getElementById('respuesta').value.trim().toLowerCase();
       // Hecho una elección: la respuesta correcta será "fosiles" (sin tilde)
-      if (r === 'fosiles adn anatomia embriones'){
+      const validas = ['fosiles','anatomia','adn','embriones'];
+      if (validas.includes(r)){
         localStorage.setItem('guardado56','ganaste');
         window.location.href = 'ganaste.html';
       } else {
