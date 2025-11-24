@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pregunta 5</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#fffdf6;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+    .card{background:#fff;padding:32px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,0.08);max-width:720px;width:92%;text-align:center}
+    h2{color:#333}
+    #error{color:#d32f2f;font-weight:700;display:none;margin-bottom:10px}
+    .links{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+    a.link{display:inline-block;padding:10px 14px;border-radius:8px;background:#f0f0f0;text-decoration:none;color:#0645ad;word-break:break-all}
+    input{width:86%;padding:10px;border-radius:8px;border:1px solid #bbb;font-size:16px}
+    button{margin-top:16px;padding:12px 24px;border-radius:10px;border:none;background:#4CAF50;color:white;font-size:16px;cursor:pointer}
+    button:hover{opacity:0.95}
+    p.small{font-size:14px;color:#555;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="error">Incorrecta.</div>
+    <h2>Hay 4 enlaces, en uno está la consigna.</h2>
+
+    <div class="links">
+      <a class="link" href="https://shorturl.at/uKcLR" target="_blank" rel="noopener">https://shorturl.at/uKcLR</a>
+      <a class="link" href="https://shorturl.at/9XpPP" target="_blank" rel="noopener">https://shorturl.at/9XpPP</a>
+      <a class="link" href="https://shorturl.at/DCB1f" target="_blank" rel="noopener">https://shorturl.at/DCB1f</a>
+      <a class="link" href="https://shorturl.at/dczlE" target="_blank" rel="noopener">https://shorturl.at/dczlE</a>
+    </div>
+
+    <input id="respuesta" type="text" placeholder="escribí la opción correcta (una palabra)..." />
+    <br>
+    <button onclick="verificar()">Responder</button>
+
+    <p class="small">Opciones válidas (escribí exactamente una en minúsculas): fosiles  anatomia  adn  embriones</p>
+  </div>
+
+  <script>
+    // Si ya ganaste, ir a la página final
+    if (localStorage.getItem('guardado56') === 'ganaste') {
+      window.location.href = 'ganaste.html';
+    }
+
+    // Mantener guardado56 en otras páginas: cuando el usuario haga clic en cualquiera de los enlaces,
+    // no cerramos la página (target _blank). El guardado se actualiza sólo al acertar.
+
+    function verificar(){
+      const r = document.getElementById('respuesta').value.trim().toLowerCase();
+      // Hecho una elección: la respuesta correcta será "fosiles" (sin tilde)
+      if (r === 'fosiles'){
+        localStorage.setItem('guardado56','ganaste');
+        window.location.href = 'ganaste.html';
+      } else {
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
